@@ -13,7 +13,7 @@
 function logUrlCallback(tab: chrome.tabs.Tab) {
     fetch("http://localhost:32768/", {
         method: "POST",
-        body: JSON.stringify({url: tab.url, dateTime: new Date().toISOString()})
+        body: JSON.stringify({url: tab.url, dateTime: Math.round(new Date().getTime()/1000)})
     }).then((response) => {console.log(response)})
 }
 
